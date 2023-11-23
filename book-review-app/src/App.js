@@ -1,59 +1,37 @@
-import React, { useState } from 'react';
-import Login from './Login';
-import SignUp from './Signup';
-import BookList from './BookList';
-import BookDetail from './BookDetail';
-import ReviewForm from './ReviewForm';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { AppBar, Toolbar, Typography, Container, Paper, Button } from '@mui/material';
 import './book.css';
-const App = () => {
-  const [user, setUser] = useState(null);
-  const [selectedBook, setSelectedBook] = useState(null);
-  const [reviews, setReviews] = useState({});
+import HomePage from './HomePage';
+import LoginPage from './Login';
+import SignUpPage from './Signup';
+import BookForm from './BookForm';
 
-  const handleLogin = (userData) => {
-    setUser(userData);
-  };
-
-  const handleSignUp = (userData) => {
-    setUser(userData);
-  };
-
-  const handleBookClick = (bookId) => {
-    setSelectedBook(books.find((book) => book.id === bookId));
-  };
-
-  const handleReviewSubmit = (review) => {
-    setReviews({ ...reviews, [selectedBook.id]: review });
-  };
-
-  const books = [
-    { id: 1, title: 'Book 1', author: 'Author 1', description: 'Description 1' },
-    { id: 2, title: 'Book 2', author: 'Author 2', description: 'Description 2' },
-  ];
-
+function App() {
   return (
-    <div>
-      {!user ? (
-        <div>
-          <Login onLogin={handleLogin} />
-          <SignUp onSignUp={handleSignUp} />
-        </div>
-      ) : (
-        <div>
-          <h1>Welcome, {user.email}!</h1>
-          <BookList books={books} onBookClick={handleBookClick} />
-          {selectedBook && (
-            <div>
-              <BookDetail book={selectedBook} />
-              <ReviewForm onSubmit={handleReviewSubmit} />
-              <p>Reviews: {reviews[selectedBook.id]}</p>
-            </div>
-          )}
-        </div>
-      )}
-    </div>
+    <Router>
+      <AppBar>
+        <Toolbar>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+           Book Review App
+          </Typography>
+          <Button component={Link} to="/" color="inherit">Home</Button>
+          <Button component={Link} to="/signup" color="inherit">Sign Up</Button>
+          <Button component={Link} to="/login" color="inherit">Login</Button>
+        </Toolbar>
+      </AppBar>
+      <Container sx={{ marginTop: 2 }}>
+        <Paper elevation={3} sx={{ padding: 3 }}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/signup" element={<SignUpPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path='/BookForm' element={<BookForm/>}></Route>
+          </Routes>
+        </Paper>
+      </Container>
+    </Router>
   );
-};
+}
 
 export default App;
