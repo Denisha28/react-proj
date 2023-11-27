@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { Routes,Route, useNavigate, BrowserRouter } from 'react-router-dom';
-import BookForm from './BookForm';
-
 const Login = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -9,7 +7,7 @@ const Login = ({ onLogin }) => {
   const navigate=useNavigate();
    const handleL = (e) => {
     e.preventDefault();
-    navigate('/BookForm');
+    navigate('/Choose');
    };
 
   return (

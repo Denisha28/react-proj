@@ -6,7 +6,7 @@ const SignUp = ({ onSignUp }) => {
   const navigate=useNavigate();
   const handleL = (e) => {
    e.preventDefault();
-   navigate('/BookForm');
+   navigate('/Choose');
   };
   return (
     <div>

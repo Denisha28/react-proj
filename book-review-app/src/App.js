@@ -1,13 +1,22 @@
 import React from 'react';
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { AppBar, Toolbar, Typography, Container, Paper, Button } from '@mui/material';
 import './book.css';
 import HomePage from './HomePage';
 import LoginPage from './Login';
 import SignUpPage from './Signup';
-import BookForm from './BookForm';
+import Choose from './Choose';
+import Thanks from './Thanks';
+import ReviewForm from './ReviewForm';
+import ReviewSave from './ReviewSave';
 
 function App() {
+  const [reviews, setReviews] = useState([]);
+
+  const handleReviewSubmit = (newReview) => {
+    setReviews([...reviews, newReview]);
+  };
   return (
     <Router>
       <AppBar>
@@ -26,7 +35,11 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/signup" element={<SignUpPage />} />
             <Route path="/login" element={<LoginPage />} />
-            <Route path='/BookForm' element={<BookForm/>}></Route>
+            <Route path='/Choose' element={<Choose/>}/>
+            <Route path='/Thanks' element={<Thanks/>}/>
+            <Route path='/HomePage' element={<HomePage/>}/>
+            <Route path='/ReviewForm' element={<ReviewForm onReviewSubmit={handleReviewSubmit}/>}/>
+            <Route path='/ReviewSave' element={<ReviewSave reviews={reviews}/>}/>
           </Routes>
         </Paper>
       </Container>
