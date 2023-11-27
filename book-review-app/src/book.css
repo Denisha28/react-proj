@@ -61,5 +61,14 @@ button:hover {
   font-style: oblique;
 }
 .a{
-  padding: 40px;
+  display: flex;
+  padding: 50px;
 }
+.a button{
+  margin-right: 20px;
+  background-color: antiquewhite;
+  width: 200px;
+  height: 70px;
+  font-size: larger;
+}
+

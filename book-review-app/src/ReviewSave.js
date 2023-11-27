@@ -1,9 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 const ReviewSave = ({ reviews }) => {
   const navigate=useNavigate();
   const handleL = (e) => {
    e.preventDefault();
+   axios.get('http://localhost:8000/posts?review=${review}')
    navigate('/HomePage');
   };
   return (

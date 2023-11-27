@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 import { Routes,Route, useNavigate, BrowserRouter } from 'react-router-dom';
 const Login = ({ onLogin }) => {
-  const [email, setEmail] = useState('');
+  const [text,setEmail] = useState('');
   const [password, setPassword] = useState('');
    
   const navigate=useNavigate();
    const handleL = (e) => {
     e.preventDefault();
-    navigate('/Choose');
+    navigate('/Choose',{state: {text}});
    };
 
   return (
     <div>
       <form >
         <label className='form'>
-          Email:
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+          Username:
+          <input type="text" value={text} onChange={(e) => setEmail(e.target.value)} />
         </label>
         
         <label>

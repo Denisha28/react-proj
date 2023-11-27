@@ -13,10 +13,9 @@ const ReviewForm = ({ onReviewSubmit }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    alert('submitted');
 
     try {
-      const response = await axios.post('http://localhost:8000/posts', {
+      const response = await axios.post('https://example.com/api/reviews', {
         title,
         author,
         review,
@@ -38,7 +37,7 @@ const ReviewForm = ({ onReviewSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className='cb'>
+    <form onSubmit={handleSubmit}>
       <label>
         Book:
         <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} /><br/>
@@ -51,10 +50,8 @@ const ReviewForm = ({ onReviewSubmit }) => {
         <textarea value={review} onChange={(e) => setReview(e.target.value)} />
       </label>
       <br />
-      <br/>
-      <button className='button' type="submit" onClick={handleSubmit} >Submit Review</button>
-      &nbsp; &nbsp; &nbsp;
-      <button className='button' type='submit'  onClick={handleL} >DONE</button>
+      <button type="submit" onClick={handleSubmit}>Submit Review</button>
+      <button type='submit' onClick={handleL}>DONE</button>
     </form>
   );
 };

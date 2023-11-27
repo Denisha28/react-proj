@@ -9,7 +9,7 @@ const Thanks = () => {
    return (
        <div>
         <h1>Thank You for your review </h1>
-        <button type='submit' onClick={handleL}>HOME</button>
+        <button className='button' type='submit' onClick={handleL}>HOME</button>
     </div>
   );
 };

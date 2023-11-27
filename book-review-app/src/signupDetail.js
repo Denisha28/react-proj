@@ -6,14 +6,14 @@ const SignUp = ({ onSignUp }) => {
   const navigate=useNavigate();
   const handleL = (e) => {
    e.preventDefault();
-   navigate('/Choose');
+   navigate('/login');
   };
   return (
     <div>
       <form >
         <label>
-          Username:
-          <input type="text" value={
+         Email:
+          <input type="email" value={
             Username
           } onChange={(e) => setUsername(e.target.value)} />
         </label>

@@ -1,0 +1,33 @@
+/* HomePage.css */
+.home-page {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .welcome-heading {
+    color: #3498db; /* Set the color of the heading */
+  }
+  
+  .quote {
+    font-style: italic;
+    margin-top: 10px;
+    color: #7f8c8d; /* Set the color of the quote */
+  }
+  
+  .book-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .book-image {
+    width: 100px; /* Set the width of each book image */
+    height: 150px; /* Set the height of each book image */
+    margin: 0 10px; /* Set the margin between book images */
+  }
+  
+  .additional-info {
+    color: #34495e; /* Set the color of the additional information */
+    margin-top: 20px;
+  }
+  
